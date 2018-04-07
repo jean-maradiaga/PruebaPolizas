@@ -17,13 +17,8 @@ namespace POCO
         /// <summary>
         /// Constructor de Cliente usado para la operacion de creacion de un nuevo cliente.
         /// </summary>
-        public Cliente(string nombre, string apellido, string correo, string cedula, char genero)
+        public Cliente()
         {
-            Nombre = nombre;
-            Apellido = apellido;
-            Correo = correo;
-            Cedula = cedula;
-            Genero = genero;
         }
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace POCO
     public class Poliza
     {
 
-        public int ID { get; set; }
+        public int ID_Poliza { get; set; }
         public int Periodo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
@@ -20,7 +20,7 @@ namespace POCO
         public decimal Precio { get; set; }
         public string Riesgo { get; set; }
         public string Cubrimiento { get; set; }
-        public DateTime InicioVigencia { get; set; }
+        public DateTime Inicio_Vigencia { get; set; }
         public Cliente Cliente { get; set; }
 
 
@@ -47,7 +47,7 @@ namespace POCO
         public Poliza(string nombre, string descripcion, int periodo, decimal precio, string riesgo, decimal deducible, string cobertura, 
                       DateTime inicioVigencia, int id, Cliente cliente)
         {
-            ID = id;
+            ID_Poliza = id;
             Nombre = nombre;
             Descripcion = descripcion;
             Periodo = periodo;
@@ -55,7 +55,7 @@ namespace POCO
             Riesgo = riesgo;
             Deducible = deducible;
             Cubrimiento = cobertura;
-            InicioVigencia = inicioVigencia;
+            Inicio_Vigencia = inicioVigencia;
             Cliente = cliente;
         }
 

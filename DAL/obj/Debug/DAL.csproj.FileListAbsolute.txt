@@ -8,3 +8,5 @@ C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\obj\Debug\DAL.csproj.CopyComple
 C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\obj\Debug\DAL.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\obj\Debug\DAL.pdb
 C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\bin\Debug\DAL.dll.config
+C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\bin\Debug\POCO.dll
+C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\bin\Debug\POCO.pdb

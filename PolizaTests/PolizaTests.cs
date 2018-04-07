@@ -5,12 +5,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dapper;
 using System;
 using POCO;
+using System.Linq;
+using DAL;
+using System.Collections.Generic;
+
 namespace PolizaTests
 {
     [TestClass]
     public class PolizaTests
     {
         static string ConnectionString = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
+        private IPolizaRepository repo = new PolizaRepository();
         SqlConnection sqlCon = new SqlConnection(ConnectionString);
         public static string[] Riesgo = { "Bajo", "Medio", "Medio-Alto", "Alto" };
         public static string[] Cobertura = { "Robo", "Incendio", "Terremoto", "Perdida" };
@@ -24,7 +29,7 @@ namespace PolizaTests
                 ManageConnection();
                 Poliza p = new Poliza()
                 {
-                    ID = 0,
+                    ID_Poliza = 0,
                     Nombre = "Pol-TEST",
                     Descripcion = "Test",
                     Periodo = 5,
@@ -32,23 +37,10 @@ namespace PolizaTests
                     Precio = 10000,
                     Riesgo = GetRandom(Riesgo),
                     Cubrimiento = GetRandom(Cobertura),
-                    InicioVigencia = DateTime.Now,
+                    Inicio_Vigencia = DateTime.Now,
                     Cliente = GetTestCliente()
             };
-
-                DynamicParameters param = new DynamicParameters();
-                param.Add("@id_poliza", p.ID);
-                param.Add("@nombre", p.Nombre);
-                param.Add("@descripcion", p.Descripcion);
-                param.Add("@periodo", p.Periodo);
-                param.Add("@deducible", p.Deducible);
-                param.Add("@precio", p.Precio);
-                param.Add("@riesgo", p.Riesgo);
-                param.Add("@cubrimiento", p.Cubrimiento);
-                param.Add("@inicio_vigencia", p.InicioVigencia);
-                param.Add("@id_cliente", p.Cliente.ID);
-
-                sqlCon.Execute("PolizaAddOrEdit", param, commandType: CommandType.StoredProcedure);
+                repo.InsertOrUpdatePoliza(p);
             }
             catch(Exception e)
             {
@@ -63,11 +55,81 @@ namespace PolizaTests
 
         }
 
+        [TestMethod]
+        public void TestUpdatePoliza()
+        {
+
+            try
+            {
+                ManageConnection();
+                Poliza p1 = repo.GetPolizaByID(7);
+                string newDes = "Poliza de lujo en primer año";
+                p1.Descripcion = newDes;
+                repo.InsertOrUpdatePoliza(p1);
+                Poliza p2 = repo.GetPolizaByID(7);
+                Console.WriteLine(p2.Descripcion);
+                Assert.AreEqual(p2.Descripcion, newDes);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                ManageConnection();
+            }
+
+
+
+        }
+
+        [TestMethod]
+        public void TestGetById()
+        {
+  
+
+            try
+            {
+                ManageConnection();
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@id_poliza", 5);
+                Poliza p = sqlCon.Query<Poliza>("PolizaById", param, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                p.Cliente = sqlCon.Query<Cliente>("ClienteByPolizaId", param, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                Console.WriteLine(p.ToString());
+                Assert.IsNotNull(p);
+
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                ManageConnection();
+            }
+        }
+
+        [TestMethod]
+        public void TestGetAll()
+        {
+            IEnumerable<Poliza> polizas = repo.GetPolizas();
+            Console.WriteLine(polizas.First());
+            Assert.IsNotNull(polizas);
+        }
+
         public Cliente GetTestCliente()
         {
-            Cliente c = new Cliente("Cesar", "Mora", "cmora@mail.com", "127849573", 'M')
-            {
-                ID = 4
+            Cliente c = new Cliente()
+            {    
+
+                ID = 4,
+                Nombre = "Cesar",
+                Apellido = "Mora",
+                Correo = "cmora@mail.com",
+                Cedula = "127849573",
+                Genero = 'M'
+
             };
             return c;
         }
