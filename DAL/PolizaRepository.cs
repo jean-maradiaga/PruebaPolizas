@@ -19,7 +19,20 @@ namespace DAL
 
         public IEnumerable<Poliza> GetPolizas()
         {
-            return this._sqlCon.Query<Poliza>("PolizaViewAll", commandType: CommandType.StoredProcedure);
+            try
+            {
+                ManageConnection();
+                return this._sqlCon.Query<Poliza>("PolizaViewAll", commandType: CommandType.StoredProcedure);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                ManageConnection();
+            }
+            
         }
 
         public Poliza GetPolizaByID(int id)
@@ -75,9 +88,24 @@ namespace DAL
             }
         }
 
-        public void DeletePoliza(int PolizaID)
+        public void DeletePoliza(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                ManageConnection();
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@id_poliza", id);
+                _sqlCon.Query<Cliente>("PolizaDeleteById", param, commandType: CommandType.StoredProcedure);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                ManageConnection();
+            }
         }
 
         public void ManageConnection()

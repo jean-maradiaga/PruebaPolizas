@@ -95,3 +95,10 @@ C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\obj\Debug\WebApi.csproj.Core
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\obj\Debug\WebApi.csproj.CopyComplete
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\obj\Debug\WebApi.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\obj\Debug\WebApi.pdb
+C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\DAL.dll
+C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\POCO.dll
+C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\Dapper.dll
+C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\DAL.pdb
+C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\DAL.dll.config
+C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\POCO.pdb
+C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\Dapper.xml

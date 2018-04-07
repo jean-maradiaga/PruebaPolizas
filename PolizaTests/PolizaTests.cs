@@ -26,7 +26,6 @@ namespace PolizaTests
 
             try
             {
-                ManageConnection();
                 Poliza p = new Poliza()
                 {
                     ID_Poliza = 0,
@@ -46,13 +45,7 @@ namespace PolizaTests
             {
                 throw e;
             }
-            finally
-            {
-                ManageConnection();
-            }
-
-
-
+          
         }
 
         [TestMethod]
@@ -61,7 +54,6 @@ namespace PolizaTests
 
             try
             {
-                ManageConnection();
                 Poliza p1 = repo.GetPolizaByID(7);
                 string newDes = "Poliza de lujo en primer año";
                 p1.Descripcion = newDes;
@@ -75,11 +67,6 @@ namespace PolizaTests
             {
                 throw e;
             }
-            finally
-            {
-                ManageConnection();
-            }
-
 
 
         }
@@ -91,10 +78,10 @@ namespace PolizaTests
 
             try
             {
+                Poliza p = repo.GetPolizaByID(5);
                 ManageConnection();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@id_poliza", 5);
-                Poliza p = sqlCon.Query<Poliza>("PolizaById", param, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 p.Cliente = sqlCon.Query<Cliente>("ClienteByPolizaId", param, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 Console.WriteLine(p.ToString());
                 Assert.IsNotNull(p);
@@ -116,6 +103,23 @@ namespace PolizaTests
             IEnumerable<Poliza> polizas = repo.GetPolizas();
             Console.WriteLine(polizas.First());
             Assert.IsNotNull(polizas);
+        }
+
+        [TestMethod]
+        public void TestDeletePoliza()
+        {
+            try
+            {
+                Poliza p = repo.GetPolizas().LastOrDefault();
+                repo.DeletePoliza(p.ID_Poliza);
+                Poliza p2 = repo.GetPolizas().LastOrDefault();
+                Assert.AreNotEqual(p, p2);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
 
         public Cliente GetTestCliente()
