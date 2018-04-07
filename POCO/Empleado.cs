@@ -9,11 +9,14 @@ namespace POCO
     /// <summary>
     /// Una persona que utiliza el sistema del tipo Empleado. Es quien se encarga de manejar el sistema.
     /// </summary>
-    class Empleado : Persona
+    public class Empleado : Persona
     {
         public string Username { get; set; }
         public string Password { get; set; }
 
+        /// <summary>
+        /// Constructor de Empleado usado para la operacion de creacion de un nuevo empleado.
+        /// </summary>
         public Empleado(string nombre, string apellido, string correo, string cedula, string username, string password)
         {
             Nombre = nombre;
@@ -24,6 +27,9 @@ namespace POCO
             Password = password;
         }
 
+        /// <summary>
+        /// Constructor de Empleado usado para las demas operaciones del CRUD.
+        /// </summary>
         public Empleado(string nombre, string apellido, string correo, string cedula, string username, string password, int id)
         {
             ID = id;
