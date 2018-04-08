@@ -1,0 +1,40 @@
+﻿.poliza-form{
+    margin:auto;
+    width:100%;
+}
+
+.title {
+    color: #c39c57!important;
+    font-weight: 700;
+}
+
+.delete {
+    color: #af594f!important;
+}
+
+.submit {
+    color: #c39c57;
+    padding: 10px 30px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background: white;
+    border: 2px solid #4d4d4d;
+}
+
+.form-cta {
+    color: #c39c57;
+    padding: 10px 30px;
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background: white;
+    border: none;
+}
+

@@ -23,21 +23,21 @@ namespace WebApi.Controllers
             return Ok(repo.GetPolizaByID(id));
         }
 
-        public IHttpActionResult Post(Poliza poliza)
+        public IHttpActionResult Post(POCO.Poliza poliza)
         {
             IPolizaRepository repo = new PolizaRepository();
             repo.InsertOrUpdatePoliza(poliza);
             return Ok();
         }
 
-        public IHttpActionResult Put(Poliza poliza)
+        public IHttpActionResult Put([FromBody]Poliza poliza)
         {
             IPolizaRepository repo = new PolizaRepository();
             repo.InsertOrUpdatePoliza(poliza);
             return Ok();
         }
 
-        public IHttpActionResult Delete(Poliza poliza)
+        public IHttpActionResult Delete(POCO.Poliza poliza)
         {
             IPolizaRepository repo = new PolizaRepository();
             repo.DeletePoliza(poliza.ID_Poliza);

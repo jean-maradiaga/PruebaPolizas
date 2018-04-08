@@ -26,7 +26,7 @@ namespace PolizaTests
 
             try
             {
-                Poliza p = new Poliza()
+                POCO.Poliza p = new POCO.Poliza()
                 {
                     ID_Poliza = 0,
                     Nombre = "Pol-TEST",
@@ -54,11 +54,11 @@ namespace PolizaTests
 
             try
             {
-                Poliza p1 = repo.GetPolizaByID(7);
+                Poliza p1 = repo.GetPolizaByID((int)7);
                 string newDes = "Poliza de lujo en primer año";
                 p1.Descripcion = newDes;
                 repo.InsertOrUpdatePoliza(p1);
-                Poliza p2 = repo.GetPolizaByID(7);
+                Poliza p2 = repo.GetPolizaByID((int)7);
                 Console.WriteLine(p2.Descripcion);
                 Assert.AreEqual(p2.Descripcion, newDes);
 
@@ -78,7 +78,7 @@ namespace PolizaTests
 
             try
             {
-                Poliza p = repo.GetPolizaByID(5);
+                Poliza p = repo.GetPolizaByID((int)5);
                 ManageConnection();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@id_poliza", 5);
@@ -98,9 +98,9 @@ namespace PolizaTests
         }
 
         [TestMethod]
-        public void TestGetAll()
+        public void TestGetAllPolizas()
         {
-            IEnumerable<Poliza> polizas = repo.GetPolizas();
+            IEnumerable<POCO.Poliza> polizas = repo.GetPolizas();
             Console.WriteLine(polizas.First());
             Assert.IsNotNull(polizas);
         }
@@ -110,9 +110,9 @@ namespace PolizaTests
         {
             try
             {
-                Poliza p = repo.GetPolizas().LastOrDefault();
+                POCO.Poliza p = repo.GetPolizas().LastOrDefault();
                 repo.DeletePoliza(p.ID_Poliza);
-                Poliza p2 = repo.GetPolizas().LastOrDefault();
+                POCO.Poliza p2 = repo.GetPolizas().LastOrDefault();
                 Assert.AreNotEqual(p, p2);
             }
             catch (Exception e)

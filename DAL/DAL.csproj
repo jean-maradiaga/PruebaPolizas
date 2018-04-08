@@ -44,9 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CubrimientoRepository.cs" />
+    <Compile Include="ICubrimientoRepository.cs" />
     <Compile Include="IPolizaRepository.cs" />
+    <Compile Include="IRiesgoRepository.cs" />
     <Compile Include="PolizaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RiesgoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

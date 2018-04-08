@@ -1,6 +1,5 @@
 C:\Users\jeanpaul\source\repos\PruebaSeguros\POCO\bin\Debug\POCO.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\POCO\bin\Debug\POCO.pdb
-C:\Users\jeanpaul\source\repos\PruebaSeguros\POCO\obj\Debug\POCO.csprojResolveAssemblyReference.cache
 C:\Users\jeanpaul\source\repos\PruebaSeguros\POCO\obj\Debug\POCO.csproj.CoreCompileInputs.cache
 C:\Users\jeanpaul\source\repos\PruebaSeguros\POCO\obj\Debug\POCO.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\POCO\obj\Debug\POCO.pdb
