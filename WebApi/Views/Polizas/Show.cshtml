@@ -1,7 +1,5 @@
-﻿@using WebApi.Models
-
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Polizas";
 }
 
 <!DOCTYPE html>
@@ -13,13 +11,13 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/CSS/screen.css" rel="stylesheet" />
     <link href="~/CSS/show.css" rel="stylesheet" />
+    <link href="~/CSS/form_validation.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
-    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
 
     <style>
-        #upd-btn-container{
-            visibility:hidden;
+        #upd-btn-container {
+            visibility: hidden;
         }
     </style>
 
@@ -30,110 +28,52 @@
 
         <!-- Contact Area -->
         <section class="section section-contact">
-            <div class="row row-fit">
+                <div class="row row-fit">
 
-                <div class="col-md-12 poliza-form">
-                    <div class="contact-area-block">
-                        <h2 class="section-title">Poliza</h2>
+                    <div class="col-md-12 poliza-form">
+                        <div class="contact-area-block">
+                            <h2 class="section-title">Poliza</h2>
 
-                        <form id="frmPoliza" class="contact-form">
-
-                            <label class="input-line">
-                                <input name="Cliente" type="text" class="form-input check-value" />
-                                <span class="placeholder">Cliente</span>
-                                <i class="form-icon icon-user2"></i>
-                            </label>
-
-                            <label class="input-line">
-                                <input name="Nombre" type="text" class="form-input check-value" />
-                                <span class="placeholder">Nombre</span>
-                                <i class="form-icon icon-newspaper"></i>
-                            </label>
-
-                            <label class="input-line">
-                                <textarea name="Descripcion" class="form-input check-value"></textarea>
-                                <span class="placeholder">Descripcion</span>
-                                <i class="form-icon icon-speech-bubble"></i>
-                            </label>
-
-                            <label class="input-line">
-                                <input name="Periodo" type="text" class="form-input check-value" />
-                                <span class="placeholder">Periodo</span>
-                                <i class="form-icon icon-clock"></i>
-                            </label>
-
-                            <label class="input-line">
-                                <input name="Deducible" type="text" class="form-input check-value" />
-                                <span class="placeholder">Deducible</span>
-                                <i class="form-icon icon-percent"></i>
-                            </label>
-
-                            <label class="input-line">
-                                <input name="Precio" type="text" class="form-input check-value" />
-                                <span class="placeholder">Precio</span>
-                                <i class="form-icon icon-coin-dollar"></i>
-                            </label>
-
-                            <label class="input-line">
-                                <select id="sltRiesgos" name="Riesgo" class="form-input check-value">
-                                    @Html.GetRiesgos();
-                                </select>
-                                <span class="placeholder">Riesgo</span>
-                                <i class="form-icon icon-shield"></i>
-                            </label>
-
-                            <label class="input-line">
-                                <select id="sltCubrimientos" name="Cubrimiento" class="form-input check-value">
-                                    @Html.GetCubrimientos();
-                                </select>
-                                <span class="placeholder">Cubrimiento</span>
-                                <i class="form-icon icon-shield"></i>
-                            </label>
-
-                            <label class="input-line">
-                                <input name="Inicio_Vigencia" type="text" class="form-input check-value" />
-                                <span class="placeholder">Inicio Vigencia</span>
-                                <i class="form-icon icon-calendar"></i>
-                            </label>
-
-                            <div id="upd-btn-container">
-                                <button id="btn-guardar" type="button" class="submit">Guardar</button>
-                                <button id="btn-cancelar" type="button" class="submit">Cancelar</button>
-                            </div>
-
-                        </form>
-
-                        <div class="contact-blocks">
-                            <div class="row row-fit">
-                                <div class="col-sm-8">
-                                    <div class="contact-block">
-                                        <button type="button" class="form-cta">Volver</button>
-                                    </div>
+                            <form id="frmPoliza" class="contact-form">
+                                @{Html.RenderPartial("~/Views/Shared/PolizaFormContent.cshtml");}
+                                <div id="upd-btn-container">
+                                    <button type="submit" class="submit">Guardar</button>
+                                    <button id="btn-cancelar" type="button" class="submit">Cancelar</button>
                                 </div>
+                            </form>
 
-                                <div class="col-sm-8">
-                                    <div class="contact-block">
-                                        <button id="btn-editar" type="button" class="form-cta">Editar</button>
+                            <div class="contact-blocks">
+                                <div class="row row-fit">
+                                    <div class="col-sm-8">
+                                        <div class="contact-block">
+                                            <a href="/Polizas/">
+                                                <button type="button" class="form-cta">Volver</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-sm-8">
-                                    <div class="contact-block">
-                                        <button type="button" class="form-cta">Borrar</button>
+                                    <div class="col-sm-8">
+                                        <div class="contact-block">
+                                            <button id="btn-editar" type="button" class="form-cta">Editar</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-8">
+                                        <div class="contact-block">
+                                            <button type="button" class="form-cta">Borrar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     </div>
 </body>
 </html>
-<script src="~/Scripts/index.js"></script>
-
 <script>
-    var idPoliza = @ViewContext.RouteData.Values["id"]; 
+    var idPoliza = @ViewContext.RouteData.Values["id"];
 </script>
+<script src="~/Scripts/poliza_form_validation.js"></script>
 <script src="~/Scripts/poliza_form.js"></script>

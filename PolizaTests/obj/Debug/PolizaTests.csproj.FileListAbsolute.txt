@@ -1,6 +1,7 @@
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\bin\Debug\PolizaTests.dll.config
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\bin\Debug\PolizaTests.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\bin\Debug\PolizaTests.pdb
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\bin\Debug\DAL.dll
@@ -19,4 +20,3 @@ C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\obj\Debug\PolizaTests.c
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\obj\Debug\PolizaTests.csproj.CopyComplete
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\obj\Debug\PolizaTests.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\obj\Debug\PolizaTests.pdb
-C:\Users\jeanpaul\source\repos\PruebaSeguros\PolizaTests\bin\Debug\PolizaTests.dll.config

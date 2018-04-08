@@ -1,0 +1,10 @@
+﻿.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    color: #E74C3C;
+}
+
+.is-invalid {
+    border-color: #E74C3C;
+}

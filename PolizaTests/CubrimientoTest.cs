@@ -18,7 +18,7 @@ namespace PolizaTests
         private ICubrimientoRepository repo = new CubrimientoRepository();
 
         [TestMethod]
-        public void GetAllCubrimientos()
+        public void TestGetAllCubrimientos()
         {
             IEnumerable<string> cubrimiento = repo.GetCubrimientos();
             Console.WriteLine(cubrimiento.FirstOrDefault());

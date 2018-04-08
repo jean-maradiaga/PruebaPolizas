@@ -13,6 +13,11 @@ namespace DAL
 
     public class PolizaRepository : IPolizaRepository
     {
+        private const string ViewAllProcedure = "PolizaViewAll";
+        private const string GetPolizaByIDProcedure = "PolizaById";
+        private const string InsertOrUpdateProcedure = "PolizaAddOrEdit";
+        private const string DeleteByIDProcedure = "PolizaDeleteById";
+        private const string GetClienteByIDProcedure = "ClienteByPolizaId";
 
         static string ConnectionString = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
 
@@ -23,7 +28,7 @@ namespace DAL
                 try
                 {
                     _sqlCon.Open();
-                    return _sqlCon.Query<Poliza>("PolizaViewAll", commandType: CommandType.StoredProcedure);
+                    return _sqlCon.Query<Poliza>(ViewAllProcedure, commandType: CommandType.StoredProcedure);
                 }
                 catch (Exception e)
                 {
@@ -44,8 +49,8 @@ namespace DAL
                     DynamicParameters param = new DynamicParameters();
                     param.Add("@id_poliza", id);
 
-                    Poliza p = _sqlCon.Query<Poliza>("PolizaById", param, commandType: CommandType.StoredProcedure).FirstOrDefault();
-                    p.Cliente = _sqlCon.Query<Cliente>("ClienteByPolizaId", param, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    Poliza p = _sqlCon.Query<Poliza>(GetPolizaByIDProcedure, param, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    p.Cliente = _sqlCon.Query<Cliente>(GetClienteByIDProcedure, param, commandType: CommandType.StoredProcedure).FirstOrDefault();
                     return p;
 
                 }
@@ -56,7 +61,7 @@ namespace DAL
             }
         }
 
-        public void InsertOrUpdatePoliza(POCO.Poliza p)
+        public void InsertOrUpdatePoliza(Poliza p)
         {
             using (SqlConnection _sqlCon = new SqlConnection(ConnectionString))
             {
@@ -75,7 +80,7 @@ namespace DAL
                     param.Add("@inicio_vigencia", p.Inicio_Vigencia);
                     param.Add("@id_cliente", p.Cliente.ID);
 
-                    _sqlCon.Execute("PolizaAddOrEdit", param, commandType: CommandType.StoredProcedure);
+                    _sqlCon.Execute(InsertOrUpdateProcedure, param, commandType: CommandType.StoredProcedure);
                 }
                 catch (Exception e)
                 {
@@ -93,7 +98,7 @@ namespace DAL
                     _sqlCon.Open();
                     DynamicParameters param = new DynamicParameters();
                     param.Add("@id_poliza", id);
-                    _sqlCon.Query<Cliente>("PolizaDeleteById", param, commandType: CommandType.StoredProcedure);
+                    _sqlCon.Query<Cliente>(DeleteByIDProcedure, param, commandType: CommandType.StoredProcedure);
 
                 }
                 catch (Exception e)

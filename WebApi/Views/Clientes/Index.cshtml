@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/CSS/screen.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+</head>
+<body>
+
+    <section class="section section-contact">
+            <div class="row row-fit">
+                <div class="col-md-18 centered">
+                    <div class="contact-area-block">
+                        <table id="tblClientes" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Correo</th>
+                                    <th>Cedula</th>
+                                    <th>Genero</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </section>
+</body>
+</html>
+<script src="~/Scripts/table.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var cols = [
+            { "data": "Nombre" },
+            { "data": "Apellido" },
+            { "data": "Correo" },
+            { "data": "Cedula" },
+            { "data": "Genero" }
+        ];
+
+        var table = initTable("/api/Cliente", cols, "tblClientes");
+
+        $('#tblClientes tbody').on('click', 'tr', function () {
+            localStorage.setItem("cliente", JSON.stringify(table.row(this).data()));
+            window.location.href = "/Polizas/Create";
+        });
+
+    });
+
+
+
+
+
+</script>
+
+

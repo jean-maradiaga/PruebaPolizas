@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Create Poliza";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/CSS/screen.css" rel="stylesheet" />
+    <link href="~/CSS/show.css" rel="stylesheet" />
+    <link href="~/CSS/form_validation.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</head>
+<body>
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+
+        <!-- Contact Area -->
+        <section class="section section-contact">
+            <div class="row row-fit">
+
+                <div class="col-md-12 poliza-form">
+                    <div class="contact-area-block">
+                        <h2 class="section-title">Poliza</h2>
+
+                        <form id="frmPoliza" class="contact-form">
+                            @{Html.RenderPartial("~/Views/Shared/PolizaFormContent.cshtml");}
+                            <button id="btn-crear" type="submit" class="submit">Crear</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="~/Scripts/poliza_form_validation.js"></script>
+    <script src="~/Scripts/poliza_create.js"></script>
+
+</body>
+</html>

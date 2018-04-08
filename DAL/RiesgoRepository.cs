@@ -12,6 +12,7 @@ namespace DAL
 {
     public class RiesgoRepository : IRiesgoRepository
     {
+        private const string ViewAllProcedure = "RiesgoViewAll";
         static string ConnectionString = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
 
 
@@ -23,7 +24,7 @@ namespace DAL
                 try
                 {
                     _sqlCon.Open();
-                    return _sqlCon.Query<String>("RiesgoViewAll", commandType: CommandType.StoredProcedure);
+                    return _sqlCon.Query<String>(ViewAllProcedure, commandType: CommandType.StoredProcedure);
                 }
                 catch (Exception e)
                 {

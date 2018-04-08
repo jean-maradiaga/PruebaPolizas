@@ -44,8 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteRepository.cs" />
     <Compile Include="CubrimientoRepository.cs" />
     <Compile Include="ICubrimientoRepository.cs" />
+    <Compile Include="IClienteRepository.cs" />
     <Compile Include="IPolizaRepository.cs" />
     <Compile Include="IRiesgoRepository.cs" />
     <Compile Include="PolizaRepository.cs" />

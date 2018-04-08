@@ -54,7 +54,7 @@ namespace PolizaTests
 
             try
             {
-                Poliza p1 = repo.GetPolizaByID((int)7);
+                Poliza p1 = repo.GetPolizaByID(7);
                 string newDes = "Poliza de lujo en primer año";
                 p1.Descripcion = newDes;
                 repo.InsertOrUpdatePoliza(p1);
@@ -72,13 +72,13 @@ namespace PolizaTests
         }
 
         [TestMethod]
-        public void TestGetById()
+        public void TestGetPolizaById()
         {
   
 
             try
             {
-                Poliza p = repo.GetPolizaByID((int)5);
+                Poliza p = repo.GetPolizaByID(5);
                 ManageConnection();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@id_poliza", 5);

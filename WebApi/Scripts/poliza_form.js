@@ -26,17 +26,17 @@ $formFields = $("#frmPoliza").find('input:not([name=Cliente]),select,textarea');
     });
 
 });
-var toggleFormFields = function(isDisabled) {
-    
-    $formFields.each(function(index, input) {
+var toggleFormFields = function (isDisabled) {
+
+    $formFields.each(function (index, input) {
         input.disabled = isDisabled;
     });
 
-}
+};
 
-var fillForm = function($form, data) {
+var fillForm = function ($form, data) {
 
-    $form.find('input,textarea').each(function (index,input) {
+    $form.find('input,textarea').each(function (index, input) {
         this.value = data[$(this).attr("name")];
     });
 
@@ -44,24 +44,22 @@ var fillForm = function($form, data) {
     selectOption("sltCubrimientos", data.Cubrimiento);
     selectOption("sltRiesgos", data.Riesgo);
 
-}
+};
 
-var GetDataForm = function($form) {
-    $form.find('input, select, textarea').each(function (index,input) {
+var GetDataForm = function ($form) {
+    $form.find('input, select, textarea').each(function (index, input) {
         poliza[$(this).attr("name")] = this.value;
     });
 
     poliza.Cliente = cliente;
-    poliza.ID_Poliza = idPoliza; 
-
-    console.log(poliza);
+    poliza.ID_Poliza = idPoliza;
 
     return poliza;
-}
+};
 
-var selectOption = function(selectId, value) {
+var selectOption = function (selectId, value) {
     $("#" + selectId + " option[value=" + value + "]").prop('selected', true);
-}
+};
 
 
 
@@ -96,10 +94,13 @@ $("#btn-cancelar").click(function () {
 
 });
 
-$("#btn-guardar").click(function () {
+$("#frmPoliza").submit(function (e) {
 
-    console.log(GetDataForm($("#frmPoliza")));
+    e.preventDefault();
 
+    if (!$(this).valid()) {
+        return false;
+    }
 
     $.ajax({
         url: "/api/Poliza/",

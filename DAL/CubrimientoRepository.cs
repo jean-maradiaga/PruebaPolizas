@@ -12,6 +12,7 @@ namespace DAL
 {
     public class CubrimientoRepository : ICubrimientoRepository
     {
+        private const string ViewAllProcedure = "CubrimientoViewAll";
         static string ConnectionString = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
 
         public IEnumerable<string> GetCubrimientos()
@@ -22,7 +23,7 @@ namespace DAL
                 try
                 {
                     _sqlCon.Open();
-                    return _sqlCon.Query<String>("CubrimientoViewAll", commandType: CommandType.StoredProcedure);
+                    return _sqlCon.Query<String>(ViewAllProcedure, commandType: CommandType.StoredProcedure);
                 }
                 catch (Exception e)
                 {
