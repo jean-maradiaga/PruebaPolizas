@@ -1,17 +1,16 @@
-﻿jQuery.validator.addMethod("riesgo", function (value, element) {
-    debugger;
-    return !($("select[name=Riesgo]").val() === "Alto" && parseInt(value,10) > 50);
+﻿jQuery.validator.addMethod("riesgo", function(value, element) {
+    return !($("select[name=Riesgo]").val() === "Alto" && parseInt(value, 10) > 50);
 }, "El porcentaje de cubrimiento no puede ser mayor a 50 debido a el riesgo de la poliza.");
 
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $("select[name=Riesgo]").change(function () {
+    $("select[name=Riesgo]").change(function() {
         $("input[name=Deducible]").valid();
     });
 
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     $("#frmPoliza").validate({
         rules: {
             Nombre: {
@@ -34,7 +33,7 @@ $(document).ready(function () {
             },
             Precio: {
                 required: true,
-                digits: true,
+                digits: true
             },
             Riesgo: {
                 required: true
@@ -49,7 +48,7 @@ $(document).ready(function () {
         },
         messages: {
             Nombre: {
-                required: "Por favor ingrese el nombre de la poliza",
+                required: "Por favor ingrese el nombre de la poliza"
             },
             Descripcion: {
                 required: "Por favor infrese la descripcion de la poliza",
@@ -81,15 +80,15 @@ $(document).ready(function () {
 
         },
         errorElement: "div",
-        errorPlacement: function (error, element) {
+        errorPlacement: function(error, element) {
             error.addClass("invalid-feedback");
             error.insertAfter(element);
 
         },
-        highlight: function (element, errorClass, validClass) {
+        highlight: function(element, errorClass, validClass) {
             $(element).addClass("is-invalid");
         },
-        unhighlight: function (element, errorClass, validClass) {
+        unhighlight: function(element, errorClass, validClass) {
             $(element).removeClass("is-invalid");
         }
     });

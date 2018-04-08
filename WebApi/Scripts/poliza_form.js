@@ -1,12 +1,10 @@
-﻿
-var $formFields;
+﻿var $formFields;
 var poliza;
 var cliente;
 
 $(document).ready(function () {
 
-$formFields = $("#frmPoliza").find('input:not([name=Cliente]),select,textarea');
-
+    $formFields = $("#frmPoliza").find('input:not([name=Cliente]),select,textarea');
 
     var request = $.ajax({
         url: "/api/Poliza/" + idPoliza,
@@ -64,7 +62,7 @@ var selectOption = function (selectId, value) {
 
 
 $("#frmPoliza").find('input,select,textarea').each(function (index, input) {
-        input.disabled = true;
+    input.disabled = true;
 });
 
 
@@ -94,6 +92,33 @@ $("#btn-cancelar").click(function () {
 
 });
 
+$("#btn-borrar").click(function () {
+
+    fillForm($("#frmPoliza"), poliza);
+    toggleFormCtas(true);
+    $updBtnContainer.css('visibility', 'hidden');
+    toggleFormFields(true);
+    $('#modal-elim').modal({ show: true })
+
+});
+
+$("#modal-elim").on("hide.bs.modal", function () {
+    toggleFormCtas(false);
+});
+
+$("#btn-elim-modal").on("click", function () {
+    $.ajax({
+        url: "/api/Poliza/",
+        method: "DELETE",
+        data: JSON.stringify(poliza),
+        contentType: "application/json"
+    }).done(function (data) {
+        window.location.href = "/Polizas/";
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+});
+
 $("#frmPoliza").submit(function (e) {
 
     e.preventDefault();
@@ -114,4 +139,3 @@ $("#frmPoliza").submit(function (e) {
     });
 
 });
-

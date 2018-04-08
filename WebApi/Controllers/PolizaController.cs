@@ -23,21 +23,25 @@ namespace WebApi.Controllers
             return Ok(repo.GetPolizaByID(id));
         }
 
-        public IHttpActionResult Post(POCO.Poliza poliza)
+        public IHttpActionResult Post(Poliza poliza)
         {
+            if (poliza.Riesgo.Equals("Alto") && poliza.Deducible > 50) return BadRequest("Combinacion de riesgo y deducible invalida");
+
             IPolizaRepository repo = new PolizaRepository();
             repo.InsertOrUpdatePoliza(poliza);
             return Ok();
+
         }
 
         public IHttpActionResult Put([FromBody]Poliza poliza)
         {
+            if (poliza.Riesgo.Equals("Alto") && poliza.Deducible > 50) return BadRequest("Combinacion de riesgo y deducible invalida");
             IPolizaRepository repo = new PolizaRepository();
             repo.InsertOrUpdatePoliza(poliza);
             return Ok();
         }
 
-        public IHttpActionResult Delete(POCO.Poliza poliza)
+        public IHttpActionResult Delete(Poliza poliza)
         {
             IPolizaRepository repo = new PolizaRepository();
             repo.DeletePoliza(poliza.ID_Poliza);

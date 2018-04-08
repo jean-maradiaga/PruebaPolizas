@@ -28,48 +28,67 @@
 
         <!-- Contact Area -->
         <section class="section section-contact">
-                <div class="row row-fit">
+            <div class="row row-fit">
 
-                    <div class="col-md-12 poliza-form">
-                        <div class="contact-area-block">
-                            <h2 class="section-title">Poliza</h2>
+                <div class="col-md-12 poliza-form">
+                    <div class="contact-area-block">
+                        <h2 class="section-title">Poliza</h2>
 
-                            <form id="frmPoliza" class="contact-form">
-                                @{Html.RenderPartial("~/Views/Shared/PolizaFormContent.cshtml");}
-                                <div id="upd-btn-container">
-                                    <button type="submit" class="submit">Guardar</button>
-                                    <button id="btn-cancelar" type="button" class="submit">Cancelar</button>
+                        <form id="frmPoliza" class="contact-form">
+                            @{Html.RenderPartial("~/Views/Shared/PolizaFormContent.cshtml");}
+                            <div id="upd-btn-container">
+                                <button type="submit" class="submit">Guardar</button>
+                                <button id="btn-cancelar" type="button" class="submit">Cancelar</button>
+                            </div>
+                        </form>
+
+                        <div class="contact-blocks">
+                            <div class="row row-fit">
+                                <div class="col-sm-8">
+                                    <div class="contact-block">
+                                        <a href="/Polizas/">
+                                            <button type="button" class="form-cta">Volver</button>
+                                        </a>
+                                    </div>
                                 </div>
-                            </form>
 
-                            <div class="contact-blocks">
-                                <div class="row row-fit">
-                                    <div class="col-sm-8">
-                                        <div class="contact-block">
-                                            <a href="/Polizas/">
-                                                <button type="button" class="form-cta">Volver</button>
-                                            </a>
-                                        </div>
+                                <div class="col-sm-8">
+                                    <div class="contact-block">
+                                        <button id="btn-editar" type="button" class="form-cta">Editar</button>
                                     </div>
+                                </div>
 
-                                    <div class="col-sm-8">
-                                        <div class="contact-block">
-                                            <button id="btn-editar" type="button" class="form-cta">Editar</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-8">
-                                        <div class="contact-block">
-                                            <button type="button" class="form-cta">Borrar</button>
-                                        </div>
+                                <div class="col-sm-8">
+                                    <div class="contact-block">
+                                        <button id="btn-borrar" type="button" class="form-cta">Borrar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
+
+    <div id="modal-elim" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Eliminar poliza</h4>
+                </div>
+                <div class="modal-body">
+                    <p>¿Esta seguro que desea eliminar esta poliza?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-elim-modal" type="button" class="btn btn-primary">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
 <script>

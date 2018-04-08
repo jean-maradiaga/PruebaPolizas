@@ -46,4 +46,4 @@ $("#frmPoliza").submit(function (e) {
 });
 
 var cliente = GetCliente();
-$("input[name=Cliente]").attr("disabled", "disabled"); 
+$("input[name=Cliente]").attr("disabled", "disabled");
