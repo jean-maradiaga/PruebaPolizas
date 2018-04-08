@@ -13,5 +13,12 @@ namespace WebApi.Controllers
         {
             return View();
         }
+
+        // GET: Poliza by ID
+        public ActionResult Show(int id)
+        {
+            return View();
+        }
+
     }
 }
