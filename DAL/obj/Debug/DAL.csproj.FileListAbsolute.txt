@@ -9,3 +9,14 @@ C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\obj\Debug\DAL.csproj.CoreCompil
 C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\obj\Debug\DAL.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\DAL\obj\Debug\DAL.pdb
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\bin\Debug\DAL.dll
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\bin\Debug\DAL.pdb
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\bin\Debug\Dapper.dll
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\bin\Debug\POCO.dll
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\bin\Debug\POCO.pdb
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\bin\Debug\Dapper.xml
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\obj\Debug\DAL.dll
+C:\Users\jeanpaul\Desktop\PruebaPoliza - final\PruebaPolizas\DAL\obj\Debug\DAL.pdb

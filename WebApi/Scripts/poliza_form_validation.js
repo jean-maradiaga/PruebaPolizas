@@ -77,7 +77,7 @@ $(document).ready(function() {
             },
 
             Deducible: {
-                required: "Por favor ingrese el deducible de la póliza en dolares",
+                required: "Por favor ingrese el % deducible (cobertura) de la póliza",
                 digits: "Este campo solo acepta dígitos",
                 range: "Este campo solo acepta valores entre 1 y 100"
             },

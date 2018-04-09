@@ -118,7 +118,7 @@ namespace PolizaTests
         {
             Poliza poliza = GetMockPoliza(false);
             
-            Assert.IsFalse(Validator.PolizaValida(poliza));
+            Assert.IsTrue(Validator.PolizaValida(poliza));
         }
 
         public Cliente GetTestCliente()
@@ -170,7 +170,7 @@ namespace PolizaTests
                     Precio = 10000,
                     Riesgo = Riesgo[3],
                     Cubrimiento = GetRandom(Cobertura),
-                    Inicio_Vigencia = DateTime.Now,
+                    Inicio_Vigencia = DateTime.Parse("01-01-1753"),
                     Cliente = GetTestCliente()
                 };
 
