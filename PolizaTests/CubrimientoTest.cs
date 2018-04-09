@@ -1,10 +1,5 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Dapper;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using POCO;
 using System.Linq;
 using DAL;
 using System.Collections.Generic;

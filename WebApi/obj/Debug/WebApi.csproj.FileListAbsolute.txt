@@ -71,7 +71,6 @@ C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\System.Web.WebPages.Razo
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\WebGrease.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\Dapper.dll
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\DAL.pdb
-C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\DAL.dll.config
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\POCO.pdb
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\jeanpaul\source\repos\PruebaSeguros\WebApi\bin\Newtonsoft.Json.xml

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebApi.Validation;
 
 namespace WebApi.Controllers
 {
@@ -25,8 +26,10 @@ namespace WebApi.Controllers
 
         public IHttpActionResult Post(Poliza poliza)
         {
-            if (poliza.Riesgo.Equals("Alto") && poliza.Deducible > 50) return BadRequest("Combinacion de riesgo y deducible invalida");
-
+            if (!Validator.PolizaValida(poliza))
+            {
+                return BadRequest("Combinación de riesgo y deducible invalida");
+            }
             IPolizaRepository repo = new PolizaRepository();
             repo.InsertOrUpdatePoliza(poliza);
             return Ok();
@@ -35,7 +38,10 @@ namespace WebApi.Controllers
 
         public IHttpActionResult Put([FromBody]Poliza poliza)
         {
-            if (poliza.Riesgo.Equals("Alto") && poliza.Deducible > 50) return BadRequest("Combinacion de riesgo y deducible invalida");
+            if (!Validator.PolizaValida(poliza))
+            {
+                return BadRequest("Combinación de riesgo y deducible invalida");
+            }
             IPolizaRepository repo = new PolizaRepository();
             repo.InsertOrUpdatePoliza(poliza);
             return Ok();
@@ -47,5 +53,6 @@ namespace WebApi.Controllers
             repo.DeletePoliza(poliza.ID_Poliza);
             return Ok();
         }
+
     }
 }

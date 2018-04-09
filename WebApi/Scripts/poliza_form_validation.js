@@ -2,6 +2,16 @@
     return !($("select[name=Riesgo]").val() === "Alto" && parseInt(value, 10) > 50);
 }, "El porcentaje de cubrimiento no puede ser mayor a 50 debido a el riesgo de la póliza.");
 
+$.validator.addMethod("dateRange", function (value, element, params) {
+    try {
+        var date = new Date(value);
+        if (date >= params.from && date <= params.to) {
+            return true;
+        }
+    } catch (e) { }
+    return false;
+}, 'Fecha invalida');
+
 $(document).ready(function() {
 
     $("select[name=Riesgo]").change(function() {
@@ -22,7 +32,8 @@ $(document).ready(function() {
             },
             Periodo: {
                 required: true,
-                digits: true
+                digits: true,
+                range: [1,Number.MAX_SAFE_INTEGER]
             },
 
             Deducible: {
@@ -42,7 +53,12 @@ $(document).ready(function() {
                 required: true
             },
             Inicio_Vigencia: {
-                required: true
+                required: true,
+                date:true,
+                dateRange: {
+                    from: new Date("01-01-1753"),
+                    to: new Date("12-31-9999")
+                }
             }
 
         },
@@ -56,7 +72,8 @@ $(document).ready(function() {
             },
             Periodo: {
                 required: "Por favor ingrese el periodo en meses de la póliza",
-                digits: "Este campo solo acepta dígitos"
+                digits: "Este campo solo acepta dígitos",
+                range: "Cantidad de meses minima es 1"
             },
 
             Deducible: {

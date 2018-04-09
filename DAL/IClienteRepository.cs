@@ -8,5 +8,6 @@ namespace DAL
     {
         IEnumerable<Cliente> GetClientes();
         Cliente GetClienteByID(int clienteID);
+        Cliente GetClienteByPolizaID(int polizaID);
     }
 }
