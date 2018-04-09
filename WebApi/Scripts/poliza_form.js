@@ -28,6 +28,13 @@ var toggleFormFields = function (isDisabled) {
 
     $formFields.each(function (index, input) {
         input.disabled = isDisabled;
+
+        if (isDisabled) {
+            input.parentElement.classList.add("inactive-container");
+        } else {
+            input.parentElement.classList.remove("inactive-container");
+        }
+
     });
 
 };
@@ -63,11 +70,13 @@ var selectOption = function (selectId, value) {
 
 $("#frmPoliza").find('input,select,textarea').each(function (index, input) {
     input.disabled = true;
+    $(input).parent().addClass("inactive-container");
 });
 
 
 var $formCtas = $(".form-cta");
 var $updBtnContainer = $("#upd-btn-container");
+var $actionRow = $("#actionRow");
 
 function toggleFormCtas(isDisabled) {
     $formCtas.each(function (index, item) {
@@ -85,11 +94,10 @@ $("#btn-editar").click(function () {
 
 $("#btn-cancelar").click(function () {
 
-    toggleFormFields(true);
-    $updBtnContainer.css('visibility', 'hidden');
     toggleFormCtas(false);
+    $updBtnContainer.css('visibility', 'hidden');
+    toggleFormFields(true);
     fillForm($("#frmPoliza"), poliza);
-
 });
 
 $("#btn-borrar").click(function () {

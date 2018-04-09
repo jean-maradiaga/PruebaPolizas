@@ -1,6 +1,6 @@
 ﻿jQuery.validator.addMethod("riesgo", function(value, element) {
     return !($("select[name=Riesgo]").val() === "Alto" && parseInt(value, 10) > 50);
-}, "El porcentaje de cubrimiento no puede ser mayor a 50 debido a el riesgo de la poliza.");
+}, "El porcentaje de cubrimiento no puede ser mayor a 50 debido a el riesgo de la póliza.");
 
 $(document).ready(function() {
 
@@ -48,31 +48,31 @@ $(document).ready(function() {
         },
         messages: {
             Nombre: {
-                required: "Por favor ingrese el nombre de la poliza"
+                required: "Por favor ingrese el nombre de la póliza"
             },
             Descripcion: {
-                required: "Por favor infrese la descripcion de la poliza",
-                maxlength: "La descripcion de la poliza debe de tener entre 1 y 150 caracteres"
+                required: "Por favor infrese la descripción de la póliza",
+                maxlength: "La descripción de la póliza debe de tener entre 1 y 150 caracteres"
             },
             Periodo: {
-                required: "Por favor ingrese el periodo en meses de la poliza",
-                digits: "Este campo solo acepta digitos"
+                required: "Por favor ingrese el periodo en meses de la póliza",
+                digits: "Este campo solo acepta dígitos"
             },
 
             Deducible: {
-                required: "Por favor ingrese el deducible de la poliza en dolares",
-                digits: "Este campo solo acepta digitos",
+                required: "Por favor ingrese el deducible de la póliza en dolares",
+                digits: "Este campo solo acepta dígitos",
                 range: "Este campo solo acepta valores entre 1 y 100"
             },
             Precio: {
-                required: "Por favor ingrese el precio de la poliza",
-                digits: "Este campo solo acepta digitos"
+                required: "Por favor ingrese el precio de la póliza",
+                digits: "Este campo solo acepta dígitos"
             },
             Riesgo: {
-                required: "Por favor seleccione el riesgo de la poliza"
+                required: "Por favor seleccione el riesgo de la póliza"
             },
             Cubrimiento: {
-                required: "Por favor seleccione el cubrimiento de la poliza"
+                required: "Por favor seleccione el cubrimiento de la póliza"
             },
             Inicio_Vigencia: {
                 required: "Por favor seleccione la fecha de inicio de vigencia"

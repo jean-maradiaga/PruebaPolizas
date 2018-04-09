@@ -38,3 +38,6 @@
     border: none;
 }
 
+    .form-cta:disabled {
+        text-decoration: line-through;
+    }

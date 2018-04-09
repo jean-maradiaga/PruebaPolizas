@@ -34,6 +34,12 @@ body {
   margin: 0;
 }
 
+legend {
+    border: 0;
+    padding: 0;
+    margin-top: 30px;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -7881,9 +7887,7 @@ input,
 select,
 textarea,
 button {
-  -webkit-transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -moz-transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
   max-width: 100%;
 }
 input:focus,
@@ -9997,17 +10001,17 @@ ul.page-numbers li:not(:last-of-type) {
   left: 36px;
   top: 5px;
 }
-.comments-form .input-line .form-icon,
-.contact-form .input-line .form-icon {
-  -webkit-transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  -moz-transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  position: absolute;
-  color: #dbdbdb;
-  font-size: 16px;
-  left: 10px;
-  top: 15px;
-}
+    .comments-form .input-line .form-icon,
+    .contact-form .input-line .form-icon {
+        -webkit-transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        -moz-transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transition: all 225ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        position: absolute;
+        color: #c39c57;
+        font-size: 16px;
+        left: 10px;
+        top: 15px;
+    }
     .comments-form .input-line .placeholder,
     .contact-form .input-line .placeholder {
         -webkit-transform: translate(0, -13px);
